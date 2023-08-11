@@ -1,21 +1,26 @@
 import {Alert, Button, StyleSheet, Text, TextInput, View} from "react-native";
 import { Link } from "expo-router";
-import React from "react";
+import React, {useState} from "react";
 import {router} from "expo-router";
 
 export default function Page() {
   function ButtonPressed() {
     // Alert.alert('issue','this is a warning to you.');
-    router.push('/profile');
+    // if (text === "This is a test"){
+      Alert.alert('that was correct.');
+      router.replace('authIndex')
+    // }
+    
   }
 
+  const [text, setText] = useState('');
   return (
     <View style={styles.container}>
       <View style={styles.main}>
         <Text style={styles.title}>Hello World</Text>
         <Text style={styles.subtitle}>This is the first page of your app.</Text>
         <TextInput placeholder="Username"/>
-        <TextInput placeholder="Password" secureTextEntry={true}/>
+        <TextInput placeholder="Password" secureTextEntry={true}  onChangeText={newText => setText(newText)}/>
         <Link href="/profile">Open your profile</Link>
         <Button
             title="Press me"

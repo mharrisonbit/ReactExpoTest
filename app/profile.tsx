@@ -10,14 +10,19 @@ function showMeSomething() {
 
 const profile = () => {
     function goBack() {
-        router.back();
+        
+    }
+
+    function logOut() {
+      router.push('../index')
     }
 
     return (
     <View>
       <Text>profile</Text>
-        <Button title="Go Back" onPress={goBack}/>
+        {/*<Button title="Go Back" onPress={goBack}/>*/}
         <Button title="show nothings" onPress={showMeSomething}/>
+        <Button title="Log Out" onPress={logOut}/>
     </View>
   )
 }
